@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Tumor App</title>
+  <link rel="stylesheet" href="static/css/css.css" />
+  <style>
+    
+
+    
+    .about {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      color: #ff00ff;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .section-description {
+      font-size: 1.2rem;
+      text-align: center;
+      margin-bottom: 50px;
+      color: #ddd;
+    }
+
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-img img {
+      max-width: 350px;
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+    }
+
+    .about-text {
+      max-width: 600px;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .about-text h3 {
+      font-size: 1.8rem;
+      color: #ff00ff;
+      margin-bottom: 10px;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-text {
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+    <header>
+            <h1><a href='/'>🧠 Brainlyst</a><br><span><h6 style="color:#ff00ff">Smart scans for sharp minds</h6></span></h1>
+
+        <nav>
+          <a href="/" class="hm">HOME</a>
+          <a href="{{ url_for('about') }}">ABOUT</a>
+          <a href="{{ url_for('Signin') }}">SIGNIN</a>
+        </nav>
+      </header>
+
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">About Us</h2>
+      <p class="section-description">
+        Welcome to our brain tumor detection app, built using advanced AI technology to assist in early detection and diagnosis.
+      </p>
+      <div class="about-content">
+        <div class="about-img">
+          <img src="static\images\AboutUs.png" alt="About Image" />
+        </div>
+        <div class="about-text">
+          <h3>Our Technology</h3>
+          <p>
+            Our app uses deep learning models trained on thousands of MRI scans to identify potential brain tumors. With high accuracy and speed, we provide real-time insights into MRI results, helping you catch problems early and seek professional medical help.
+          </p>
+          <h3>The Team</h3>
+          <p>
+            Our team consists of expert developers, AI specialists, and medical professionals dedicated to improving healthcare with technology. We believe in making health diagnosis tools accessible and easy to use for everyone.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brain Tumor App</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}">
+
+</head>
+<body>
+    <!-- <div class="particles"></div> -->
+  <header>
+    <h1><a href='/'>🧠 Brainlyst</a><br><span><h6 style="color:#ff00ff">Smart scans for sharp minds</h6></span></h1>
+    <nav>
+      <a href="/" class="hm">HOME</a>
+      <a href="{{ url_for('about') }}">ABOUT</a>
+      <a href="{{ url_for('Signin') }}">SIGNIN</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h2><span>BRAIN TUMOR</span><br>CLASSIFICATION APP</h2>
+      <p>Upload your MRI scans and get instant tumor classification with downloadable PDF reports — all in a few clicks.</p>
+      <div class="button-group">
+        <a href="/upload" class="button-primary">Start Diagnosis</a>
+        <a href="/learn" class="button-outline">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="glass-card">
+        <div class="mri-scroller">
+            <div class="mri-track">
+              <img src="/static/images/yes_benign.png" alt="MRI 1" />
+              <img src="/static/images/yes_benign.png" alt="MRI 2" />
+              <img src="/static/images/yes_benign.png" alt="MRI 3" />
+              <img src="/static/images/yes_benign.png" alt="MRI 4" />
+              <!-- Repeat or duplicate for seamless scroll -->
+              <img src="/static/images/yes_benign.png" alt="MRI 1" />
+              <img src="/static/images/yes_benign.png" alt="MRI 2" />
+              <img src="/static/images/yes_benign.png" alt="MRI 3" />
+              <img src="/static/images/yes_benign.png" alt="MRI 4" />
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <div class="disclaimer">
+    ⚠️ This tool may not be valid all the time. It is prone to mistakes and should not replace professional medical advice.
+  </div>
+</body>
+</html>

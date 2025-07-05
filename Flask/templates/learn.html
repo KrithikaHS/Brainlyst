@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learn More - Tumor App</title>
+  <link rel="stylesheet" href="static/css/css.css" />
+  <style>
+    
+
+    .learn-container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    .learn-container h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #ff00ff;
+      margin-bottom: 30px;
+    }
+
+    .step {
+      margin-bottom: 40px;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .step h3 {
+      font-size: 1.5rem;
+      color: #ff66cc;
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .learn-container {
+        padding: 40px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+        <h1><a href='/'>🧠 Brainlyst</a><br><span><h6 style="color:#ff00ff">Smart scans for sharp minds</h6></span></h1>
+
+    <nav>
+      <a href="/" class="active">HOME</a>
+      <a href="{{ url_for('about') }}">ABOUT</a>
+      <a href="{{ url_for('Signin') }}">SIGNIN</a>
+    </nav>
+  </header>
+
+  <section class="learn-container">
+    <h2>How to Use the App</h2>
+
+    <div class="step">
+      <h3>Step 1: Go to the Upload Page</h3>
+      <p>Click the "Get Started" button on the home page or use the navigation bar to access the image upload section.</p>
+    </div>
+
+    <div class="step">
+      <h3>Step 2: Upload a Brain MRI Image</h3>
+      <p>Drag and drop or select a valid brain MRI image from your computer. Make sure the image is clear and in JPG or PNG format.</p>
+    </div>
+
+    <div class="step">
+      <h3>Step 3: Let the AI Analyze</h3>
+      <p>Once uploaded, our AI model will analyze the image and classify it as either healthy or containing a tumor (glioma, meningioma, or pituitary).</p>
+    </div>
+
+    <div class="step">
+      <h3>Step 4: View Results</h3>
+      <p>The app will show the prediction results along with a Grad-CAM heatmap, highlighting regions of interest used for the decision.</p>
+    </div>
+
+    <div class="step">
+      <h3>Step 5: Download Report</h3>
+      <p>You can download a PDF report summarizing the result and insights for medical consultation or record keeping.</p>
+    </div>
+
+    <div class="step">
+      <h3>Need Help?</h3>
+      <p>Check out the About page or reach out to our Developer team for support. Remember, this is a support tool and not a substitute for professional diagnosis.</p>
+    </div>
+  </section>
+</body>
+</html>

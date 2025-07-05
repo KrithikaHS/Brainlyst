@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload MRI Images</title>
+    <link rel="stylesheet" href="static/css/css.css" />
+  
+    <style>
+       
+       .container {
+        /* opacity: 0.5; */
+    max-width: 900px;
+    margin: 3rem auto;
+    background: #ffe6ff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(255, 0, 255, 0.1);
+    border: 2px solid #ffccff;
+}
+
+.uploadtxt {
+    text-align: center;
+    color: #cc00cc;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.btn {
+    background-color: #ff00ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #cc00cc;
+}
+
+.results {
+    margin-top: 2rem;
+}
+
+.card {
+    padding: 1.5rem;
+    background: #fdf0fd;
+    border: 1px solid #ffb3ff;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 16px rgba(255, 0, 255, 0.1);
+    color: #333333;
+}
+#loading{
+    display: none;
+    color:#cc00cc; /* dark pink */
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 20px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href='/'>🧠 Brainlyst</a><br><span><h6 style="color:#ff00ff">Smart scans for sharp minds</h6></span></h1>
+
+        <nav>
+          <a href="/" class="active">HOME</a>
+          <a href="{{ url_for('about') }}">ABOUT</a>
+          <a href="{{ url_for('Signin') }}">SIGNIN</a>
+        </nav>
+      </header>
+<div class="app">
+    <div class="container">
+        <a href="/" class="button">Back</a>
+        <h1 class="uploadtxt">Upload MRI Images</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="images"  required style="color:black">
+            <br><br>
+            <button class="btn" type="submit" onclick="handleFileUpload()">Upload & Predict</button>
+        </form>
+        <div id="loading" style="display:none;">⏳ Loading, please wait...</div>
+        <div class="results" id="resultContainer">
+            {% for item in results %}
+                <div class="card">
+                    <h3>{{ item.filename }}</h3>
+                    <img src="{{ item.image_url }}" alt="Uploaded MRI" style="max-width: 300px; display: block; margin-top: 10px;" />
+        
+                    {% if item.error %}
+                        <p style="color: red;">{{ item.error }}</p>
+                    {% else %}
+                        <p><strong>Prediction:</strong> {{ item.result }}</p>
+                        <p><strong>Confidence:</strong> {{ item.confidence }}</p>
+        
+                        {% if tumor_info[item.result] %}
+                            <p><strong>About:</strong> {{ tumor_info[item.result].desc }}</p>
+                            <p><strong>Treatment:</strong> {{ tumor_info[item.result].treatment }}</p>
+                        {% endif %}
+                            <br>
+                        <a class="btn" href="{{ url_for('download', filename=item.report_path) }}">Download Report</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+</div>
+    
+</div>
+<script>
+function handleFileUpload() {
+    document.getElementById("resultContainer").innerHTML = "";
+
+    document.getElementById("loading").style.display = "block";
+}
+</script>
+</body>
+</html>
