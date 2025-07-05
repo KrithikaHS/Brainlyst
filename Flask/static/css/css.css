@@ -1,0 +1,386 @@
+
+  /* Index.html */
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  nav a {
+    color: #aaa;
+    margin-left: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    margin: 0 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  position: relative;
+  padding-bottom: 5px;
+  }
+
+  .active{
+    color: #ff00ff;
+  }
+  nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #ff00ff;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+  }
+  h1 a {
+    text-decoration: none;      /* removes underline */
+    color: inherit;             /* keeps the same color as h1 */
+}
+
+  nav a:hover {
+    color: #ff00ff;
+  }
+.hm{
+  color:#ff00ff;
+}
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 6rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-text {
+    flex: 1;
+    max-width: 50%;
+  }
+
+  .hero-text h2 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .hero-text h2 span {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+  }
+
+  .hero-text p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 2rem;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .button-primary {
+    padding: 0.8rem 1.6rem;
+    background: #ff00ff;
+    color: black;
+    border: none;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 12px #ff00ff;
+    text-decoration: none;
+  }
+
+  .button-primary:hover {
+    background: #ff66cc;
+    box-shadow: 0 0 20px #ff66cc;
+  }
+
+  .button-outline {
+    padding: 0.8rem 1.6rem;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+  }
+
+  .button-outline:hover {
+    background: #fff;
+    color: #000;
+  }
+
+  .hero-image {
+      
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: url('https://media1.tenor.com/m/-LL-gq-HTAkAAAAC/optical-illusions-abstract.gif') center/contain no-repeat ;
+    background-size:cover;
+    padding: 5%;
+    
+  }
+
+  .glass-card {
+    width: 700px;
+    height: 220px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    transform: rotate(-10deg);
+    padding: 1rem;
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    height: 250px; /* or more, based on your layout */
+
+overflow: hidden;
+border-radius: 16px;
+
+
+
+  }
+
+  .disclaimer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #ff9999;
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      flex-direction: column;
+      padding: 3rem 2rem;
+    }
+
+    .hero-text {
+      max-width: 100%;
+      margin-bottom: 3rem;
+    }
+
+    .hero-image {
+      transform: scale(0.9);
+    }
+  }
+  body {
+    
+    position: relative;
+    /* overflow: hidden; */
+    background-color: #f1f1f1;
+    font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(11deg, #040205, #040205);
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+      
+      
+  }
+  .mri-scroller {
+    display: flex;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+  perspective: 1000px;
+  }
+  
+  .mri-track {
+    display: flex;
+    animation: scrollMRI 30s linear infinite;
+    gap: 10px;
+  }
+  
+  .mri-track img {
+    height: 100%;
+  width: auto;
+  flex-shrink: 0;
+  border-radius: 12px;
+  opacity: 0.9;
+  object-fit: cover;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+  }
+  
+  .mri-track img:hover {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  
+  /* Scroll animation */
+  @keyframes scrollMRI {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  
+  /* About */
+  #about {
+    background: linear-gradient(11deg, #040205, #040205);
+    padding: 60px 20px;
+    color: #fff;
+  }
+  
+  #about .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  #about .section-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  #about .section-description {
+    font-size: 18px;
+    margin-bottom: 40px;
+    line-height: 1.5;
+  }
+  
+  #about .about-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  #about .about-img {
+    width: 50%;
+    max-width: 500px;
+  }
+  
+  #about .about-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  #about .about-text {
+    width: 50%;
+  }
+  
+  #about .about-text h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  #about .about-text p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+
+  /* SingnI */
+  #signin {
+    background: linear-gradient(11deg, #040205, #040205);
+    color: #fff;
+    padding: 80px 20px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #signin .signin-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  #signin .signin-container h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  #signin .input-group {
+    margin-bottom: 20px;
+  }
+  
+  #signin .input-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  #signin .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    color: #fff;
+    font-size: 16px;
+  }
+  
+  #signin .signin-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background-color: #04c3b8;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #signin .signin-btn:hover {
+    background-color: #039d93;
+  }
+  
+  #signin .signup-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  #signin .signup-link a {
+    color: #04c3b8;
+    text-decoration: none;
+  }
+  
+  #signin .signup-link a:hover {
+    text-decoration: underline;
+  }
+  
